@@ -11,13 +11,15 @@ import AVFoundation
 
 class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 
-    //Mark: private member
+    // Mark: private members
     private var recordingButtonStatus: Bool = false
     var audioRecorder: AVAudioRecorder!
     
+    // Mark: IBOutlet
     @IBOutlet weak var recordingLabel: UILabel!
     @IBOutlet weak var recordingButton: UIButton!
     
+    // Mark: IBAction
     @IBAction func recordingButtonTapped(_ sender: Any) {
         if recordingButtonStatus {
             recordingButton.setImage(UIImage(named: "Record"), for: .normal)
@@ -32,6 +34,8 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         recordingButtonStatus = !recordingButtonStatus
     }
     
+    // Mark: overridden functions
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -45,6 +49,11 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         }
     }
     
+    // Mark: private functions
+    
+    /// <summary>
+    /// Start Record Audio and save to a wav file
+    /// </summary>
     func startRecordAudio() {
         let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask, true)[0] as String
         let recordingName = "recordedVoice.wav"
@@ -61,20 +70,24 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         audioRecorder.record()
     }
     
+    /// <summary>
+    /// Stop Record Audio
+    /// </summary>
     func stopRecordAudio() {
         audioRecorder.stop()
         let audioSession = AVAudioSession.sharedInstance()
         try! audioSession.setActive(false)
     }
     
+    /// <summary>
+    /// Callback function when audio file saving is completed
+    /// </summary>
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if flag {
             performSegue(withIdentifier: "showPlaySounds", sender: audioRecorder.url)
         } else {
             print("recording failed")
         }
-    }
-    
-    
+    }    
 }
 

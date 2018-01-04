@@ -11,6 +11,7 @@ import AVFoundation
 
 class PlaySoundsViewController: UIViewController {
 
+    // Mark: private members
     var recordedAudioUrl: URL!
     var audioFile: AVAudioFile!
     var audioEngine: AVAudioEngine!
@@ -21,6 +22,7 @@ class PlaySoundsViewController: UIViewController {
         case slow = 0, fast, high, low, echo, reverb
     }
     
+    // Mark: IBOutlet
     @IBOutlet weak var slowButton: UIButton!
     @IBOutlet weak var fastButton: UIButton!
     @IBOutlet weak var lowPitchButton: UIButton!
@@ -29,6 +31,7 @@ class PlaySoundsViewController: UIViewController {
     @IBOutlet weak var reverbButton: UIButton!
     @IBOutlet weak var pauseButton: UIButton!
     
+    // Mark: IBAction
     @IBAction func playSoundButtonTapped(_ sender: UIButton) {
         switch(ButtonType(rawValue: sender.tag)!) {
         case .slow:
@@ -51,6 +54,8 @@ class PlaySoundsViewController: UIViewController {
         stopAudio()
     }
     
+    // Mark: overridden functions
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAudio()
@@ -60,7 +65,5 @@ class PlaySoundsViewController: UIViewController {
         super.viewWillAppear(animated)
         configureUI(.notPlaying)
     }
-
-
 
 }
