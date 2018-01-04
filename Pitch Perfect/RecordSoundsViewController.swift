@@ -47,6 +47,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
             session.requestRecordPermission{ allowed in
                 if allowed {
                     // allowed to record
+                    self.recordingButton.isEnabled = false
                 } else {
                     // Not allow to record so disable the button
                     self.recordingButton.isEnabled = false
@@ -101,7 +102,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if flag {
             performSegue(withIdentifier: "showPlaySounds", sender: audioRecorder.url)
-        } 
+        }
     }    
 }
 
