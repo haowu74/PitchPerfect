@@ -39,6 +39,22 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        let session = AVAudioSession.sharedInstance()
+        
+        do {
+            try session.setCategory(AVAudioSessionCategoryPlayAndRecord)
+            try session.setActive(true)
+            session.requestRecordPermission{ allowed in
+                if allowed {
+                    // allowed to record
+                } else {
+                    // Not allow to record so disable the button
+                    self.recordingButton.isEnabled = false
+                }
+            }
+        } catch {
+            // failed to record!
+        }
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -85,9 +101,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if flag {
             performSegue(withIdentifier: "showPlaySounds", sender: audioRecorder.url)
-        } else {
-            print("recording failed")
-        }
+        } 
     }    
 }
 
