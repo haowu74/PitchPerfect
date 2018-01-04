@@ -11,15 +11,13 @@ import AVFoundation
 
 class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 
-    // Mark: private members
-    private var recordingButtonStatus: Bool = false
-    var audioRecorder: AVAudioRecorder!
-    
     // Mark: IBOutlet
+    
     @IBOutlet weak var recordingLabel: UILabel!
     @IBOutlet weak var recordingButton: UIButton!
     
     // Mark: IBAction
+    
     @IBAction func recordingButtonTapped(_ sender: Any) {
         if recordingButtonStatus {
             recordingButton.setImage(UIImage(named: "Record"), for: .normal)
@@ -33,6 +31,11 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         }
         recordingButtonStatus = !recordingButtonStatus
     }
+    
+    // Mark: Variables/Constants
+    
+    private var recordingButtonStatus: Bool = false
+    var audioRecorder: AVAudioRecorder!
     
     // Mark: overridden functions
     
@@ -95,6 +98,8 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         let audioSession = AVAudioSession.sharedInstance()
         try! audioSession.setActive(false)
     }
+    
+    // Mark: delegation methods of AVAudioRecorderDelegate
     
     /// <summary>
     /// Callback function when audio file saving is completed
