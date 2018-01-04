@@ -25,7 +25,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RQn-Ny-dcl" userLabel="RecordingButton">
-                                <rect key="frame" x="110" y="264" width="155" height="155"/>
+                                <rect key="frame" x="110" y="288" width="155" height="155"/>
                                 <state key="normal" image="Record"/>
                                 <connections>
                                     <action selector="recordingButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="im3-P9-aiJ"/>
@@ -34,9 +34,9 @@
                         </subviews>
                         <color key="backgroundColor" red="0.031161724089999999" green="0.0026868681480000001" blue="0.39706932109999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="RQn-Ny-dcl" firstAttribute="top" secondItem="9LS-rY-e3D" secondAttribute="bottom" constant="160" id="0EX-r9-Gu6"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="9LS-rY-e3D" secondAttribute="bottom" constant="-40" id="MZ8-uG-Fr9"/>
                             <constraint firstItem="9LS-rY-e3D" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Q55-PC-ZAE"/>
+                            <constraint firstItem="RQn-Ny-dcl" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Yoa-xy-wIm"/>
                             <constraint firstItem="RQn-Ny-dcl" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="bHq-me-akQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
