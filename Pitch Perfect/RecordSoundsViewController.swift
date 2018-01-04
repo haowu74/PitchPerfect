@@ -47,7 +47,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
             session.requestRecordPermission{ allowed in
                 if allowed {
                     // allowed to record
-                    self.recordingButton.isEnabled = false
+                    self.recordingButton.isEnabled = true
                 } else {
                     // Not allow to record so disable the button
                     self.recordingButton.isEnabled = false
