@@ -10,9 +10,11 @@ import UIKit
 
 class PlaySoundsViewController: UIViewController {
 
-    @IBAction func recordNewSoundButtonTapped(_ sender: Any) {
-        self.navigationController?.popToRootViewController(animated: true)
+    var recordedAudioUrl: URL!
+    
+    @IBAction func playSoundButtonTapped(_ sender: Any) {
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,7 +27,7 @@ class PlaySoundsViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationItem.setHidesBackButton(true, animated:true);
+        //self.navigationItem.setHidesBackButton(true, animated:true);
     }
 
     /*
